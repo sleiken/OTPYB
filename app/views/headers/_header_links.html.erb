@@ -5,7 +5,9 @@
       <input type="submit" value="Logout">
    </form>
 <% else %>
-   <a class="register_link" href="/users/new">REGISTER</a>
-   <br/>
-   <a class="login_link" href="/sessions/login">LOG IN</a>      
+  <div id="registration-login-links">
+    <a class="btn" href="/users/new">REGISTER</a>
+    <a href="/places/new"><img id="header-logo" src="/favicon.ico" /></a>
+    <a class="btn" href="/sessions/login">LOG IN</a>
+  </div>
 <% end %>
