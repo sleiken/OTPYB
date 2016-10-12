@@ -25,10 +25,16 @@ function initMap() {
 // zoom the map in on the city.
 function onPlaceChanged() {
   var place = autocomplete.getPlace();
+  console.log(place)
   if (place.geometry) {
     map.panTo(place.geometry.location);
     map.setZoom(12);
   } else {
     document.getElementById('search').placeholder = 'SEARCH';
   }
+
+  new google.maps.Marker({
+    position: place.geometry.location,
+    map: map
+  });
 };
