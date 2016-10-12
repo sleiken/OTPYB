@@ -8,11 +8,11 @@ html, body {
   font-weight: 100;
 }
 
-.search-bar {
+/*.search-bar {
   position: fixed;
   z-index: 21;
   /*width: calc(20% - 1em);*/
-}
+
 
 #registration-login-links .btn {
   color: #808080;
@@ -29,7 +29,7 @@ html, body {
   border: none;
   font-size: 2em;
   background-color: white;
-  border-bottom: 1px solid #BBB;
+  /*border-bottom: 1px solid #BBB;*/
   outline: none;
   /*background-position: 10px 12px;*/
   background-repeat: no-repeat;
@@ -37,8 +37,8 @@ html, body {
   transition: width .4s ease-in-out;
 }
 
-input[name=search]:focus {
-  width: 100%;
+#search:focus {
+  border-bottom: 1px solid #BBB;
 }
 
 .registration-floating-div {

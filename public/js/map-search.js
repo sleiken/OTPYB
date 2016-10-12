@@ -35,6 +35,7 @@ function onPlaceChanged() {
 
   new google.maps.Marker({
     position: place.geometry.location,
+    animation: google.maps.Animation.DROP,
     map: map
   });
 };
