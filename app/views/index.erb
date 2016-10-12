@@ -1,10 +1,8 @@
-<div class="search-bar hidden">
+<div id="locationField" class="search-bar hidden">
 	<form>
-		<input type="text" name="search" placeholder="Search..">
-		<input type="submit" class="hidden">
+		<input id="search" type="text" name="search" placeholder="SEARCH">
 	</form>
 </div>
-
 <div class="home">
 	<div id="map"></div>
 	<div id="reg-float-div" class="registration-floating-div hidden">
@@ -16,9 +14,7 @@
 		</form>
 	</div>
 </div>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= @api_key %>&callback=initMap" async defer>
-</script>
-<script>
+<!-- <script>
 	var dbc = {lat: 37.7846334, lng: -122.3996024};
 
   function initMap() {
@@ -28,7 +24,7 @@
     });
 
 		// var marker = new google.maps.Marker({
-    //   position: dbc,
+    //   position: {lat: 37.63653, lng: -121.82376},
     //   map: map
     // })
 
@@ -52,4 +48,7 @@
       });
   	};
 	}
+</script> -->
+<script src="/js/map-search.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= @api_key %>&callback=initMap&libraries=places" async defer>
 </script>
