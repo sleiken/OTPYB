@@ -6,10 +6,11 @@
    </form>
 <% else %>
   <div id="registration-login-links">
-    <a class="btn" id="signup-btn" href="/users/new">SIGNUP</a>
-    <a class="btn">|</a>
+    <div class="hidden" id="append-div"></div>
+    <a class="btn" id="search-btn" href="/users/new">SEARCH</a>
+    <div class="headerDivider"></div>
     <a href="/places/new"><img id="header-logo" src="/seuss.jpg" /></a>
-    <a class="btn">|</a>
-    <a class="btn" href="/sessions/login">LOGIN</a>
+    <div class="headerDivider"></div>
+    <a class="btn" id="signup-btn" href="/sessions/login">LOGIN</a>
   </div>
 <% end %>

@@ -1,11 +1,47 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.search-bar {
+  position: fixed;
+  z-index: 21;
+  /*width: 200px;*/
+}
+
+input[name=search] {
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #808080;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url("/searchicon.png");
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  transition: width .4s ease-in-out;
+}
+
+input[name=search]:focus {
+  width: 100%;
+}
+
 .registration-floating-div {
   position: absolute;;
   top: 123px;
   margin-bottom: 200px;
 }
 
+.headerDivider {
+   border-right:1px solid;
+   color: #808080;
+   height:50px;
+   top:10px;
+}
+
 #reg-float-div {
-  /*background-color: white;*/
   height: 300px;
   width: 300px;
   position: fixed;
@@ -59,19 +95,13 @@
   margin-bottom: 5%;
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 #registration-login-links {
   display:flex;
-  justify-content: space-around;;
+  justify-content: space-around;
 }
 
 #registration-login-links .btn {
-  color: grey;
+  color: #808080;
   line-height: 50px;
   text-decoration: none;
   font-family: "Helvetica";

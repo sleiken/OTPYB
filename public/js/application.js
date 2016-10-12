@@ -1,6 +1,8 @@
 $(document).ready(function () {
   regFormEventListener();
   submitFormEventListener();
+  searchButtonListener();
+  searchBarListener();
 });
 
 var regFormEventListener = function () {
@@ -14,6 +16,23 @@ var submitFormEventListener = function () {
   $("#submit-btn").on ( "click", function () {
     event.preventDefault();
     $("#reg-float-div").addClass("hidden");
+  });
+};
+
+var searchButtonListener = function () {
+  $("#search-btn").on ("click", function () {
+    event.preventDefault();
+    $("#append-div").removeClass("hidden");
+    $("#append-div").append($(".search-bar"));
+    $(this).addClass("hidden");
+    $(".search-bar").removeClass("hidden");
+  });
+};
+
+var searchBarListener = function () {
+  $(".search-bar").submit (function () {
+    event.preventDefault();
+    
   });
 };
 
