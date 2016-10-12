@@ -1,3 +1,8 @@
+.registration-floating-div {
+  position: absolute;
+  top: 123px;
+}
+
 #header_container {
   height: 10vh;
   overflow: hidden;
@@ -9,7 +14,7 @@
   position: fixed;
   width: 100%;
   height: inherit;
-  padding-top: 20px;
+  padding-top: 16px;
 }
 
 #map {
@@ -27,13 +32,22 @@ html, body {
 
 #registration-login-links {
   display:flex;
-  justify-content: center;
+  justify-content: space-around;;
 }
 
-#registration-login-links.btn {
-  color: red;
+#registration-login-links .btn {
+  color: grey;
+  line-height: 50px;
+  text-decoration: none;
+  font-family: "Helvetica";
+  font-weight: 100;
+  font-size: 150%;
+}
+
+#registration-login-links .btn:hover {
+  color: black;
 }
 
 #header-logo {
-  height: 40px;
+  height: 50px;
 }
