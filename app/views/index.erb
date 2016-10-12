@@ -1,12 +1,14 @@
-<div class="registration-floating-div">
-	<form id="register_new_user_form" action="/users" method="POST">
-	   <input type="text" name="user[username]" placeholder="Enter Email">
-	   <input type="password" name="user[password]" placeholder="Enter Password">
-	   <input type="password" name="password_confirmation" placeholder="Confirm Password">
-	   <input type="submit" name="Register">
-	</form>
+<div class="home">
+	<div id="map"></div>
+	<div id="reg-float-div" class="registration-floating-div hidden">
+		<form id="register_new_user_form" action="/users" method="POST">
+		   <input type="text" name="user[username]" placeholder="Enter Email">
+		   <input type="password" name="user[password]" placeholder="Enter Password">
+		   <input type="password" name="password_confirmation" placeholder="Confirm Password">
+		   <input id="submit-btn" type="submit" name="Register">
+		</form>
+	</div>
 </div>
-<div id="map"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= @api_key %>&callback=initMap" async defer>
 </script>
 <script>

@@ -1,6 +1,40 @@
 .registration-floating-div {
-  position: absolute;
+  position: absolute;;
   top: 123px;
+  margin-bottom: 200px;
+}
+
+#reg-float-div {
+  /*background-color: white;*/
+  height: 300px;
+  width: 300px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+}
+
+#reg-float-div form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#reg-float-div form input {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.home {
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 
 #header_container {
@@ -20,6 +54,7 @@
 #map {
   height: 90%;
   width: 90%;
+  margin-top: 1%;
   margin-left: 5%;
   margin-bottom: 5%;
 }

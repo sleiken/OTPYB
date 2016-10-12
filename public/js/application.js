@@ -1,3 +1,22 @@
+$(document).ready(function () {
+  regFormEventListener();
+  submitFormEventListener();
+});
+
+var regFormEventListener = function () {
+  $("#signup-btn").on ( "click", function () {
+    event.preventDefault();
+    $("#reg-float-div").removeClass("hidden");
+  });
+};
+
+var submitFormEventListener = function () {
+  $("#submit-btn").on ( "click", function () {
+    event.preventDefault();
+    $("#reg-float-div").addClass("hidden");
+  });
+};
+
 // map = new google.maps.Map(document.getElementById('map'), {
 //   center: {lat: -34.397, lng: 150.644},
 //   zoom: 8
