@@ -7,18 +7,16 @@ end
 #CREATE
 
 post '/sessions/login/?' do
-
-   @user = User.find_by_username(params[:user][:email])
-
-   if @user && @user.password == params[:user][:password]
+  @user = User.find_by(email: params[:user][:email])
+  if @user && @user.password == params[:user][:password]
+    if request.xhr?
       session[:id] = @user.id
-      
-      erb :'/headers/_header_links.html', layout: !request.xhr?
-   else
-      @errors = "Email & Password not found"
-      erb :'/sessions/_login.html', layout: !request.xhr?
-   end
-
+      erb :'/headers/_header_links.html', layout: false
+    # else
+    #   @errors = "Email & Password not found"
+    #   erb :'/sessions/_login.html', layout: !request.xhr?
+    end
+  end
 end
 
 # DELETE

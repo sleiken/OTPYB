@@ -1,39 +1,60 @@
 $(document).ready(function () {
   regFormEventListener();
-  submitFormEventListener();
+  loginSubmitEventListener();
+  logoutEventListener();
 });
 
 var regFormEventListener = function () {
-  $("#signup-btn").on ( "click", function () {
+  $("#login-btn").on ( "click", function (event) {
     event.preventDefault();
-    $("#reg-float-div").removeClass("hidden");
+    if ($("#reg-float-div").hasClass("hidden")) {
+      $("#reg-float-div").removeClass("hidden");
+    } else {
+      $("#reg-float-div").addClass("hidden");
+    }
   });
 };
 
-var submitFormEventListener = function () {
-  $("#submit-btn").on ( "click", function () {
+var loginSubmitEventListener = function () {
+  $('#submit-btn').on ("click", function (event) {
     event.preventDefault();
+
+    $.ajax({
+      url: "/sessions/login",
+      type: "POST",
+      data: $(this).parent().serialize()
+    })
+    .done( function( response ) {
+      setupHeaderForm( response );
+    })
     $("#reg-float-div").addClass("hidden");
+    logoutEventListener();
   });
 };
 
-// map = new google.maps.Map(document.getElementById('map'), {
-//   center: {lat: -34.397, lng: 150.644},
-//   zoom: 8
-// });
+var logoutEventListener = function () {
+  $("#logout-btn").on ("click", function (event) {
+    event.preventDefault();
 
-// $(document).ready(function () {
-// })
-//    // console.log( $.type );
-//    // console.log( $( document ) );
-//    headerLinkListener( ".login_link" );
-//    headerLinkListener( ".register_link" );
-//    headerFormSubmitListener( "#register_new_user_form" );
-//    headerFormSubmitListener( "#login_user_form" );
-//    headerFormSubmitListener( "#logout_user_form" );
-//    doSomeCrazyStuff();
-// });
-//
+    $.ajax({
+      url: "/sessions/logout",
+      type: "DELETE"
+    })
+    .done( function( response ) {
+      setupHeaderForm( response );
+    })
+
+    regFormEventListener();
+  });
+};
+
+
+var setupHeaderForm = function( response ) {
+   var targetParentListener = $ ( "#header_login_register_div" );
+   targetParentListener.empty();
+   targetParentListener.append(response);
+};
+
 // var generateRandomColor = function () {
 //    var num = Math.floor((Math.random() * 4) + 0);
 //

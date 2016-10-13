@@ -1,19 +1,73 @@
-<!-- <div id="locationField" class="search-bar">
-	<form>
-		<input id="search" type="text" name="search" placeholder="SEARCH">
-	</form>
-</div> -->
 <div class="home">
 	<div id="map"></div>
 	<div id="reg-float-div" class="registration-floating-div hidden">
-		<form id="register_new_user_form" action="/users" method="POST">
-		   <input type="text" name="user[username]" placeholder="Enter Email">
-		   <input type="password" name="user[password]" placeholder="Enter Password">
-		   <input type="password" name="password_confirmation" placeholder="Confirm Password">
-		   <input id="submit-btn" type="submit" name="Register">
-		</form>
+		<%= erb :"/sessions/_login.html" %>
 	</div>
 </div>
-<script src="/js/map-search.js"></script>
+<!-- <script src="/js/map-search.js"></script> -->
+<script>
+var dbc = {lat: 37.7846334, lng: -122.3996024};
+var hostnameRegexp = new RegExp('^https?://.+?/');
+
+function initMap() {
+	map = new google.maps.Map($("#map")[0], {
+		zoom: 12,
+		center: dbc,
+		mapTypeControl: true,
+		panControl: false,
+		zoomControl: false,
+		streetViewControl: false
+	});
+
+	autocomplete = new google.maps.places.Autocomplete(
+			/** @type {!HTMLInputElement} */ (
+			$("#search")[0]), {
+				types: ['(cities)']
+			});
+	places = new google.maps.places.PlacesService(map);
+
+	autocomplete.addListener('place_changed', onPlaceChanged);
+
+	<% @places.each do |place| %>
+		var marker = new google.maps.Marker({
+			position: { lat: <%= place.lat %>, lng: <%= place.lng %> },
+			animation: google.maps.Animation.DROP,
+			map: map
+		});
+	<% end %>
+};
+
+// var marker = new google.maps.Marker({
+// 	position: place.geometry.location,
+// 	animation: google.maps.Animation.DROP,
+// 	map: map
+// });
+
+// When the user selects a city, get the place details for the city and
+// zoom the map in on the city.
+function onPlaceChanged() {
+	var place = autocomplete.getPlace();
+	console.log(place)
+	if (place.geometry) {
+		map.panTo(place.geometry.location);
+		map.setZoom(12);
+	} else {
+		document.getElementById('search').placeholder = 'SEARCH';
+	}
+
+	new google.maps.Marker({
+		position: place.geometry.location,
+		animation: google.maps.Animation.DROP,
+		map: map
+	});
+};
+</script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= @api_key %>&callback=initMap&libraries=places" async defer>
 </script>
+
+<!-- <form id="register_new_user_form" action="/users" method="POST">
+	 <input type="text" name="user[username]" placeholder="Enter Email">
+	 <input type="password" name="user[password]" placeholder="Enter Password">
+	 <input type="password" name="password_confirmation" placeholder="Confirm Password">
+	 <input id="submit-btn" type="submit" name="Register">
+</form> -->
