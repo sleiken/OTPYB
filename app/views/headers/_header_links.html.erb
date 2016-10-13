@@ -13,10 +13,15 @@
    </form> -->
 <% else %>
   <div id="registration-login-links">
-    <input class="btn" id="search" type="text" name="search" placeholder="SEARCH" onblur="this.value=''">
+    <ul class="nav">
+      <li><input class="btn vert-align" id="search" type="text" name="search" placeholder="SEARCH" onblur="this.value=''"></li>
+      <li><a class="btn" href="/"><img id="header-logo" src="/seuss.jpg" /></a></li>
+      <li><a class="btn vert-align" id="login-btn" href="/sessions/login">LOGIN/REGISTER</a></li>
+    </ul>
+    <!-- <input class="btn" id="search" type="text" name="search" placeholder="SEARCH" onblur="this.value=''"> -->
     <!-- <div class="headerDivider"></div> -->
-    <a class="btn" href="/places/new"><img id="header-logo" src="/seuss.jpg" /></a>
+    <!-- <a class="btn" href="/places/new"><img id="header-logo" src="/seuss.jpg" /></a> -->
     <!-- <div class="headerDivider"></div> -->
-    <a class="btn" id="login-btn" href="/sessions/login">LOGIN/REGISTER</a>
+    <!-- <a class="btn" id="login-btn" href="/sessions/login">LOGIN/REGISTER</a> -->
   </div>
 <% end %>

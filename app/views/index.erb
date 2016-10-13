@@ -26,12 +26,14 @@ function initMap() {
 
 	autocomplete.addListener('place_changed', onPlaceChanged);
 
-	<% @places.each do |place| %>
-		var marker = new google.maps.Marker({
-			position: { lat: <%= place.lat %>, lng: <%= place.lng %> },
-			animation: google.maps.Animation.DROP,
-			map: map
-		});
+	<% if @places %>
+		<% @places.each do |place| %>
+			var marker = new google.maps.Marker({
+				position: { lat: <%= place.lat %>, lng: <%= place.lng %> },
+				animation: google.maps.Animation.DROP,
+				map: map
+			});
+		<% end %>
 	<% end %>
 
 	var infoWindow = new google.maps.InfoWindow({map: map});

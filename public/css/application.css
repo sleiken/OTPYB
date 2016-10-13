@@ -9,32 +9,57 @@ html, body {
   color: #808080;
 }
 
-.headerDivider {
+/*.headerDivider {
    border-right: 1px solid;
    height: 50px;
    top: 10px;
    position: absolute;
-}
+}*/
 
-#login-btn {
+/*#login-btn {
   height: 50px;
   width: 190px;
   left: 50%;
   transform: translateX(-50%);
+}*/
+
+#header_container {
+  padding-top: 10px;
+  height: 70px;
+  /*display: flex;*/
 }
 
 #header-logo {
   height: 50px;
-  position: absolute;
-  justify-content: center;
+  /*position: absolute;*/
+  /*text-align: center;*/
 }
 
 #registration-login-links a {
-  height: 50px;
+  /*height: inherit;*/
   text-decoration: none;
   font-size: 2em;
   padding-top: 4px;
   /*width: calc(20% - 1em);*/
+}
+
+.vert-align {
+
+}
+
+.nav {
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  /*height: inherit;*/
+}
+.nav li{
+    display:inline;
+    max-width: 275px;
+}
+.nav a{
+    /*display:inline-block;*/
+    padding:10px;
 }
 
 ::-webkit-input-placeholder {
@@ -102,18 +127,14 @@ html, body {
   width: 100%;
 }
 
-#header_container {
-  height: 4em;
-  overflow: hidden;
-}
-
 .header_div {
+  /*height: inherit;*/
+  overflow: hidden;
   background-color: white;
   z-index: 20;
   position: fixed;
   width: 100%;
-  height: inherit;
-  padding-top: 16px;
+  padding-top: 0px;
 }
 
 #map {
@@ -124,10 +145,10 @@ html, body {
   margin-bottom: 5%;
 }
 
-#registration-login-links {
+/*#registration-login-links {
   display:flex;
   justify-content: space-around;
-}
+}*/
 
 .btn:visited {
   color: #808080;

@@ -26,9 +26,10 @@ var loginSubmitEventListener = function () {
     })
     .done( function( response ) {
       setupHeaderForm( response );
+      logoutEventListener();
     })
+    $("#login_user_form").find("input[type=text], input[type=password]").val("");
     $("#reg-float-div").addClass("hidden");
-    logoutEventListener();
   });
 };
 
@@ -38,13 +39,13 @@ var logoutEventListener = function () {
 
     $.ajax({
       url: "/sessions/logout",
-      type: "DELETE"
+      type: "GET"
     })
     .done( function( response ) {
       setupHeaderForm( response );
+      regFormEventListener();
     })
 
-    regFormEventListener();
   });
 };
 
