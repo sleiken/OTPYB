@@ -4,7 +4,6 @@
 		<%= erb :"/sessions/_login.html" %>
 	</div>
 </div>
-<!-- <script src="/js/map-search.js"></script> -->
 <script>
 var dbc = {lat: 37.7846334, lng: -122.3996024};
 var hostnameRegexp = new RegExp('^https?://.+?/');
@@ -64,10 +63,3 @@ function onPlaceChanged() {
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= @api_key %>&callback=initMap&libraries=places" async defer>
 </script>
-
-<!-- <form id="register_new_user_form" action="/users" method="POST">
-	 <input type="text" name="user[username]" placeholder="Enter Email">
-	 <input type="password" name="user[password]" placeholder="Enter Password">
-	 <input type="password" name="password_confirmation" placeholder="Confirm Password">
-	 <input id="submit-btn" type="submit" name="Register">
-</form> -->

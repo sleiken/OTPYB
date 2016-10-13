@@ -9,6 +9,12 @@ html, body {
   color: #808080;
 }
 
+.headerDivider {
+   border-right:1px solid;
+   height:50px;
+   top:10px;
+}
+
 #registration-login-links .btn {
   height: 50px;
   text-decoration: none;
@@ -48,31 +54,26 @@ html, body {
   color: #808080;
 }
 
-.registration-floating-div {
+/*.registration-floating-div {
   position: absolute;
   top: 123px;
   margin-bottom: 200px;
-}
-
-.headerDivider {
-   border-right:1px solid;
-   height:50px;
-   top:10px;
-}
+}*/
 
 #reg-float-div {
-  height: 300px;
-  width: 300px;
+  height: 18em;
+  width: 15em;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
 }
 
-#reg-float-div form {
-  position: fixed;
+#reg-forms {
+  display: block;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
