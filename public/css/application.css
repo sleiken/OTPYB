@@ -10,15 +10,30 @@ html, body {
 }
 
 .headerDivider {
-   border-right:1px solid;
-   height:50px;
-   top:10px;
+   border-right: 1px solid;
+   height: 50px;
+   top: 10px;
+   position: absolute;
 }
 
-#registration-login-links .btn {
+#login-btn {
+  height: 50px;
+  width: 190px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#header-logo {
+  height: 50px;
+  position: absolute;
+  justify-content: center;
+}
+
+#registration-login-links a {
   height: 50px;
   text-decoration: none;
   font-size: 2em;
+  padding-top: 4px;
   /*width: calc(20% - 1em);*/
 }
 
@@ -27,15 +42,15 @@ html, body {
 }
 
 #search {
-  height: 1em;
-  width: 6em;
+  height: 48px;
+  width: 190px;
   border: none;
   font-size: 2em;
   background-color: white;
   outline: none;
   /*background-position: 10px 12px;*/
   background-repeat: no-repeat;
-  transition: width .4s ease-in-out;
+  transition: border-bottom .6s ease-in-out;
 }
 
 #search:focus {
@@ -53,12 +68,6 @@ html, body {
 #search:focus::-webkit-input-placeholder {
   color: #808080;
 }
-
-/*.registration-floating-div {
-  position: absolute;
-  top: 123px;
-  margin-bottom: 200px;
-}*/
 
 #reg-float-div {
   height: 18em;
@@ -124,10 +133,10 @@ html, body {
   color: #808080;
 }
 
-#registration-login-links .btn:hover {
-  color: black;
+.btn {
+  color: #808080;
 }
 
-#header-logo {
-  height: 50px;
+#registration-login-links .btn:hover {
+  color: black;
 }
