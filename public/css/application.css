@@ -11,10 +11,20 @@ html, body {
   color: #808080;
 }
 
+#circle {
+	width: 100px;
+	height: 100px;
+	background: red;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+
 #map {
   height: 90%;
   width: 90%;
   /*margin-top: 1%;*/
+  margin-top: 10px;
   margin-left: 5%;
   margin-bottom: 5%;
 }
@@ -81,43 +91,48 @@ html, body {
 .btn:visited {
   color: #808080;
 }
-
 .btn {
   color: #808080;
 }
-
-#registration-login-links .btn:hover {
+#nav-list .btn:hover {
   color: black;
 }
 
 /*Navbar*/
 #navbar-container {
-  height: 60px;
+  height: 55px;
 }
 #navbar-links {
   position: fixed;
   z-index: 20;
   overflow: hidden;
-  height: 60px;
+  display: flex;;
+  /*height: 50px;*/
   width: 100%;
+  padding-bottom: 5px;
   background-color: white;
 }
 #nav-list {
   /*display: flex;*/
   margin: 0px;
   list-style-type: none;
+  padding-left: 10px;
   /*justify-content: flex-start;*/
+}
+#nav-list li {
+  /*display: inline-block;*/
+  display: inline;
+  padding-right: 10px;
 }
 #nav-list a {
   text-decoration: none;
 }
-#nav-list li {
-  display: inline
-  /*width: 100px;*/
+#username {
+  font-size: 30px;
+  justify-content: right;
 }
 #header-logo {
-  height: 50px;
-  /*padding-top: 0.5%;*/
+  height: 55px;
 }
 
 /*#registration-login-links {
