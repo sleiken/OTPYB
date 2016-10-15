@@ -9,6 +9,91 @@ html, body {
   color: #808080;
 }
 
+#map {
+  height: 90%;
+  width: 90%;
+  margin-top: 1%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
+
+.home {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+/*Search bar*/
+#search {
+  height: 48px;
+  width: 190px;
+  border: none;
+  font-size: 2em;
+  background-color: white;
+  outline: none;
+  background-repeat: no-repeat;
+  transition: border-bottom .6s ease-in-out;
+}
+#search:focus {
+  border-bottom: 1px solid #BBB;
+}
+#search:hover {
+  cursor: pointer;
+}
+#search:hover::-webkit-input-placeholder {
+  color: black;
+}
+#search:focus::-webkit-input-placeholder {
+  color: #808080;
+}
+
+/*Login/Register forms*/
+#reg-float-div {
+  height: 18em;
+  width: 15em;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+}
+#reg-float-div form input {
+  display: block;
+}
+#reg-forms {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+::-webkit-input-placeholder {
+   color: #808080;
+}
+
+.btn:visited {
+  color: #808080;
+}
+
+.btn {
+  color: #808080;
+}
+
+#registration-login-links .btn:hover {
+  color: black;
+}
+
+/*#registration-login-links {
+  display:flex;
+  justify-content: space-around;
+}*/
+
 /*.headerDivider {
    border-right: 1px solid;
    height: 50px;
@@ -23,141 +108,47 @@ html, body {
   transform: translateX(-50%);
 }*/
 
-#header_container {
-  padding-top: 10px;
+/*#header_container {
+  /*padding-top: 10px;*/
   height: 70px;
   /*display: flex;*/
-}
+/*}*/
 
-#header-logo {
+/*#header-logo {
   height: 50px;
   /*position: absolute;*/
   /*text-align: center;*/
-}
+/*}*/
 
-#registration-login-links a {
+/*#registration-login-links a {
   /*height: inherit;*/
   text-decoration: none;
   font-size: 2em;
   padding-top: 4px;
   /*width: calc(20% - 1em);*/
-}
+/*}*/
 
-.vert-align {
-
-}
-
-.nav {
+/*.nav {
   text-align: center;
   margin-top: 0px;
   margin-bottom: 0px;
   /*height: inherit;*/
-}
-.nav li{
+/*/
+
+/*.nav li{
     display:inline;
     max-width: 275px;
 }
 .nav a{
     /*display:inline-block;*/
     padding:10px;
-}
+}/*/*/
 
-::-webkit-input-placeholder {
-   color: #808080;
-}
-
-#search {
-  height: 48px;
-  width: 190px;
-  border: none;
-  font-size: 2em;
-  background-color: white;
-  outline: none;
-  /*background-position: 10px 12px;*/
-  background-repeat: no-repeat;
-  transition: border-bottom .6s ease-in-out;
-}
-
-#search:focus {
-  border-bottom: 1px solid #BBB;
-}
-
-#search:hover {
-  cursor: pointer;
-}
-
-#search:hover::-webkit-input-placeholder {
-  color: black;
-}
-
-#search:focus::-webkit-input-placeholder {
-  color: #808080;
-}
-
-#reg-float-div {
-  height: 18em;
-  width: 15em;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
-}
-
-#reg-forms {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-#reg-float-div form input {
-  display: block;
-}
-
-.hidden {
-  display: none;
-}
-
-.home {
-  position: relative;
-  height: 100%;
-  width: 100%;
-}
-
-.header_div {
-  /*height: inherit;*/
+/*.header_div {
   overflow: hidden;
   background-color: white;
   z-index: 20;
   position: fixed;
   width: 100%;
   padding-top: 0px;
-}
-
-#map {
-  height: 90%;
-  width: 90%;
-  margin-top: 1%;
-  margin-left: 5%;
-  margin-bottom: 5%;
-}
-
-/*#registration-login-links {
-  display:flex;
-  justify-content: space-around;
 }*/
-
-.btn:visited {
-  color: #808080;
-}
-
-.btn {
-  color: #808080;
-}
-
-#registration-login-links .btn:hover {
-  color: black;
-}

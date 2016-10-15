@@ -1,5 +1,21 @@
-<div id="header_container">
-   <div id="header_login_register_div" class="header_div">
-      <%= erb :"/headers/_header_links.html" %>
+<div id="navbar-container">
+   <div id="navbar-links">
+     <% if logged_in? %>
+       <!-- <div id="registration-login-links"> -->
+         <ul id="nav-list">
+           <li><a class="btn" href="/places/new"><img id="header-logo" src="/seuss.jpg" /></a></li>
+           <li><a class="btn" id="logout-btn" href="/sessions/logout">LOGOUT</a></li>
+           <li><input class="btn" id="search" type="text" name="search" placeholder="SEARCH" onblur="this.value=''"></li>
+         </ul>
+       <!-- </div> -->
+     <% else %>
+       <!-- <div id="registration-login-links"> -->
+         <ul id="nav-list">
+           <li><a class="btn" href="/"><img id="header-logo" src="/seuss.jpg" /></a></li>
+           <li><a class="btn vert-align" id="login-btn" href="/sessions/login">LOGIN</a></li>
+           <li><input class="btn vert-align" id="search" type="text" name="search" placeholder="SEARCH" onblur="this.value=''"></li>
+         </ul>
+       <!-- </div> -->
+     <% end %>
    </div>
 </div>

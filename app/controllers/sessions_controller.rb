@@ -10,7 +10,8 @@ post '/sessions/login/?' do
   @user = User.find_by(email: params[:user][:email])
   if @user && @user.password == params[:user][:password]
     session[:id] = @user.id
-    erb :'/headers/_header_links.html', layout: !request.xhr?
+    # erb :'/headers/_header_links.html', layout: !request.xhr?
+    redirect "/"
     # else
     #   @errors = "Email & Password not found"
     #   erb :'/sessions/_login.html', layout: !request.xhr?
@@ -21,5 +22,6 @@ end
 
 get '/sessions/logout/?' do
    session[:id] = nil
-   erb :'/headers/_header_links.html', layout: !request.xhr?
+   redirect "/"
+  #  erb :'/headers/_header_links.html', layout: !request.xhr?
 end

@@ -1,7 +1,7 @@
 $(document).ready(function () {
   regFormEventListener();
-  loginSubmitEventListener();
-  logoutEventListener();
+  // loginSubmitEventListener();
+  // logoutEventListener();
 });
 
 var regFormEventListener = function () {
