@@ -19,7 +19,7 @@ function initMap() {
 	autocomplete = new google.maps.places.Autocomplete(
 			/** @type {!HTMLInputElement} */ (
 			$("#search")[0]), {
-				types: ['(cities)']
+				types: ['(regions)']
 			});
 	autocomplete.addListener('place_changed', onPlaceChanged);
 
@@ -38,7 +38,8 @@ function initMap() {
         var marker = new google.maps.Marker({
           map: map,
           icon: "http://maps.google.com/mapfiles/ms/icons/green-dot.png",
-          position: place.geometry.location
+          position: place.geometry.location,
+          animation: google.maps.Animation.DROP
         });
         google.maps.event.addListener(marker, 'click', function() {
           infoWindow.setContent("<div><strong>" + place.formatted_address + "</strong></div>");
@@ -62,7 +63,8 @@ function initMap() {
       var marker = new google.maps.Marker({
         map: map,
         icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
-        position: pos
+        position: pos,
+        animation: google.maps.Animation.DROP
       });
       //set map center to current location if not logged in
       <% if !logged_in? %>
@@ -80,19 +82,18 @@ function initMap() {
 //when the user selects a city, get the place details for the city and zoom the map in on the city.
 function onPlaceChanged() {
 	var place = autocomplete.getPlace();
-	console.log(place)
-  console.log(place.place_id)
 	if (place.geometry) {
 		map.panTo(place.geometry.location);
-		map.setZoom(12);
+		// map.setZoom(12);
 	} else {
 		document.getElementById('search').placeholder = 'SEARCH';
 	}
 
 	new google.maps.Marker({
-		position:  place.geometry.location,
-		animation: google.maps.Animation.DROP,
-		map: map
+    map: map,
+    icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
+    position:  place.geometry.location,
+    animation: google.maps.Animation.DROP
 	});
 };
 </script>
