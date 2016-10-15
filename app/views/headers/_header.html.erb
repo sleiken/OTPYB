@@ -12,7 +12,7 @@
       <% if !logged_in? %>
         <li><a class="btn vert-align" id="register-btn" href="/users/new">REGISTER</a></li>
       <% else %>
-        <li><a class="btn vert-align">HI, SAM</a></li>
+        <li><a class="btn vert-align">HI, <%= current_user.username.upcase %></a></li>
       <% end %>
     </ul>
   </div>
