@@ -84,7 +84,7 @@ function onPlaceChanged() {
 	var place = autocomplete.getPlace();
 	if (place.geometry) {
 		map.panTo(place.geometry.location);
-		// map.setZoom(12);
+		map.setZoom(2);
 	} else {
 		document.getElementById('search').placeholder = 'SEARCH';
 	}
