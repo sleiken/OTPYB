@@ -1,19 +1,19 @@
 <div id="navbar-container">
   <div id="navbar-links">
-    <!-- <div id="logo">
-      <a class="btn" href="/"><img id="header-logo" src="/seuss.jpg" /></a>
-    </div> -->
     <ul class="nav-list nav-left">
-      <li><a class="btn vert-align" id="login-btn" href="/sessions/login">LOGIN</a></li>
+      <% if !logged_in? %>
+        <li><a class="btn vert-align" id="login-btn" href="/sessions/login">LOGIN</a></li>
+      <% else %>
+        <li><a class="btn vert-align" id="logout-btn" href="/sessions/logout">LOGOUT</a></li>
+      <% end %>
       <li><input class="btn vert-align" id="search" type="text" name="search" placeholder="SEARCH" onblur="this.value=''"></li>
     </ul>
-    <!-- <ul class="nav-list nav-center">
-      <li>
-        <a class="btn" href="/"><img id="header-logo" src="/seuss.jpg" /></a>
-      </li>
-    </ul> -->
     <ul class="nav-list nav-right">
-      <li><a class="btn vert-align">HI, USER</a></li>
+      <% if !logged_in? %>
+        <li><a class="btn vert-align" id="register-btn" href="/users/new">REGISTER</a></li>
+      <% else %>
+        <li><a class="btn vert-align">HI, SAM</a></li>
+      <% end %>
     </ul>
   </div>
 </div>
@@ -26,3 +26,9 @@
   </ul>
 <% else %>
 <% end %> -->
+
+<!-- <ul class="nav-list nav-center">
+  <li>
+    <a class="btn" href="/"><img id="header-logo" src="/seuss.jpg" /></a>
+  </li>
+</ul> -->

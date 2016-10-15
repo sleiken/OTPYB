@@ -52,7 +52,7 @@ html, body {
 }
 
 /*Login/Register forms*/
-#reg-float-div {
+.float-div {
   height: 18em;
   width: 15em;
   position: fixed;
@@ -62,10 +62,10 @@ html, body {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
 }
-#reg-float-div form input {
+.float-div form input {
   display: block;
 }
-#reg-forms {
+.reg-forms {
   display: block;
   position: absolute;
   top: 50%;

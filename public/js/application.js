@@ -1,18 +1,19 @@
 $(document).ready(function () {
-  regFormEventListener();
+  formEventListener($("#login-btn"), $("#login-div"));
+  formEventListener($("#register-btn"), $("#register-div"));
   // loginSubmitEventListener();
   // logoutEventListener();
 });
 
-var regFormEventListener = function () {
-  $("#login-btn").on ( "click", function (event) {
+var formEventListener = function (button, div) {
+  button.on ( "click", function (event) {
     event.preventDefault();
-    if ($("#reg-float-div").hasClass("hidden")) {
-      $("#reg-float-div").removeClass("hidden");
+    if (div.hasClass("hidden")) {
+      div.removeClass("hidden");
     } else {
-      $("#reg-float-div").addClass("hidden");
+      div.addClass("hidden");
     }
-  });
+  })
 };
 
 var loginSubmitEventListener = function () {

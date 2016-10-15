@@ -1,7 +1,10 @@
 <div class="home">
 	<div id="map"></div>
-	<div id="reg-float-div" class="registration-floating-div hidden">
+	<div id="login-div" class="registration-floating-div float-div hidden">
 		<%= erb :"/sessions/_login.html" %>
+	</div>
+	<div id="register-div" class="registration-floating-div float-div hidden">
+		<%= erb :"/users/_new.html" %>
 	</div>
 </div>
 <script>
