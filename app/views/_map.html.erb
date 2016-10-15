@@ -1,25 +1,29 @@
 <script>
-var dbc = {lat: 37.7846334, lng: -122.3996024};
+//center for map when zoomed out
+var global_center = {lat: 30.9650874, lng: 1.1948218}
+//sets zoom based on if a user is logged in or not
+var zoom = <%= logged_in? ? 2 : 12 %>
 
+//create map object
 function initMap() {
 	map = new google.maps.Map($("#map")[0], {
-		zoom: 12,
-		center: dbc,
-		mapTypeControl: true,
+		zoom: zoom,
+		center: global_center,
+		mapTypeControl: false,
 		panControl: false,
 		zoomControl: false,
 		streetViewControl: false
 	});
 
+  //add autocomplete fucntion to search bar
 	autocomplete = new google.maps.places.Autocomplete(
 			/** @type {!HTMLInputElement} */ (
 			$("#search")[0]), {
 				types: ['(cities)']
 			});
-	places = new google.maps.places.PlacesService(map);
-
 	autocomplete.addListener('place_changed', onPlaceChanged);
 
+  //drop user location pins
 	<% if @places %>
 		<% @places.each do |place| %>
 			var marker = new google.maps.Marker({
@@ -30,16 +34,16 @@ function initMap() {
 		<% end %>
 	<% end %>
 
-	var infoWindow = new google.maps.InfoWindow({map: map});
-
+  //drop infowindow at current user location
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
+      var infoWindow = new google.maps.InfoWindow({map: map});
       var pos = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
 
-      var content = '<a>Example Text</a>'
+      var content = "<button>ADD</button>"
       infoWindow.setPosition(pos);
       infoWindow.setContent(content);
       map.setCenter(pos);
@@ -47,8 +51,7 @@ function initMap() {
   };
 };
 
-// When the user selects a city, get the place details for the city and
-// zoom the map in on the city.
+// When the user selects a city, get the place details for the city and zoom the map in on the city.
 function onPlaceChanged() {
 	var place = autocomplete.getPlace();
 	console.log(place)
