@@ -70,7 +70,6 @@ function onPlaceChanged() {
 	console.log(place)
   console.log(place.place_id)
 	if (place.geometry) {
-    // place.formatted_address  (e.g. 'washington, DC, USA')
 		map.panTo(place.geometry.location);
 		map.setZoom(12);
 	} else {
