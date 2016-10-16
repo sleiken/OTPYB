@@ -1,0 +1,34 @@
+<div id="navbar-container">
+  <div id="navbar-links">
+    <ul class="nav-list nav-left">
+      <% if !logged_in? %>
+        <li><a class="btn vert-align" id="login-btn" href="/sessions/login">LOGIN</a></li>
+      <% else %>
+        <li><a class="btn vert-align" id="logout-btn" href="/sessions/logout">LOGOUT</a></li>
+      <% end %>
+      <li><input class="btn vert-align" id="search" type="text" name="search" placeholder="SEARCH" onblur="this.value=''"></li>
+    </ul>
+    <ul class="nav-list nav-right">
+      <% if !logged_in? %>
+        <li><a class="btn vert-align" id="register-btn" href="/users/new">REGISTER</a></li>
+      <% else %>
+        <li><a class="btn vert-align">HI, <%= current_user.username.upcase %></a></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- <% if logged_in? %>
+  <ul id="nav-list">
+    <li><a class="btn" href="/places/new"><img id="header-logo" src="/seuss.jpg" /></a></li>
+    <li><a class="btn" id="logout-btn" href="/sessions/logout">LOGOUT</a></li>
+    <li><input class="btn" id="search" type="text" name="search" placeholder="SEARCH" onblur="this.value=''"></li>
+  </ul>
+<% else %>
+<% end %> -->
+
+<!-- <ul class="nav-list nav-center">
+  <li>
+    <a class="btn" href="/"><img id="header-logo" src="/seuss.jpg" /></a>
+  </li>
+</ul> -->

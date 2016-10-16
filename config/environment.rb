@@ -18,6 +18,8 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'sinatra/json'
 
+require 'faker'
+
 require 'bcrypt'
 
 # CORS
@@ -26,7 +28,7 @@ require 'sinatra/cross_origin'
 require 'erb'
 require 'haml'
 
-#Reauire .env gem and enable it
+#Require .env gem and enable it
 require 'dotenv'
 Dotenv.load
 
@@ -76,9 +78,3 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
-
-
-# TEST (??)
-# before do
-# 	p params
-# end

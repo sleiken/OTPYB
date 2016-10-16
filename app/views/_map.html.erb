@@ -1,0 +1,110 @@
+<script>
+//center for map when zoomed out
+var global_center = {lat: 30.9650874, lng: 1.1948218}
+//sets zoom based on if a user is logged in or not
+var zoom = <%= logged_in? ? 2 : 12 %>
+
+//create map object
+function initMap() {
+	map = new google.maps.Map($("#map")[0], {
+		zoom: zoom,
+		center: global_center,
+		mapTypeControl: false,
+		panControl: false,
+		zoomControl: false,
+		streetViewControl: false
+	});
+
+  //add autocomplete fucntion to search bar
+	autocomplete = new google.maps.places.Autocomplete(
+			/** @type {!HTMLInputElement} */ (
+			$("#search")[0]), {
+				types: ['(regions)']
+			});
+	autocomplete.addListener('place_changed', onPlaceChanged);
+
+  //drop green markers at user locations from db
+  <% if @places %>
+    <% @places.each do |place| %>
+    console.log("<%=place%>")
+    //creates object to search by placeId and get place info.
+    var service = new google.maps.places.PlacesService(map);
+    //creates an infoWindow object for each place
+    var infoWindow = new google.maps.InfoWindow();
+    //get deatils about place
+    service.getDetails({
+      placeId: "<%= place.placeId %>"
+    }, function(place, status) {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        var marker = new google.maps.Marker({
+          map: map,
+          icon: "http://maps.google.com/mapfiles/ms/icons/green-dot.png",
+          position: place.geometry.location,
+          animation: google.maps.Animation.DROP
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+          infoWindow.setContent("<div><strong>" + place.formatted_address + "</strong></div>");
+          infoWindow.open(map, this);
+        });
+      }
+    });
+    <% end %>
+  <% end %>
+
+  //drop blue marker at current user location
+  //get user location if browser has capability
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var infoWindow = new google.maps.InfoWindow();
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      //set up blue marker at current location
+      var marker = new google.maps.Marker({
+        map: map,
+        icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+        position: pos,
+        animation: google.maps.Animation.DROP
+      });
+      //set map center to current location if not logged in
+      <% if !logged_in? %>
+        <%= "map.setCenter(pos);" %>
+      <% end %>
+      //add event listener to display infow window if marker is clicked
+      google.maps.event.addListener(marker, 'click', function() {
+        infoWindow.setContent("<button>ADD TO MY MAP</button>");
+        infoWindow.open(map, this);
+      });
+    });
+  };
+}
+
+//when the user selects a city, get the place details for the city and zoom the map in on the city.
+function onPlaceChanged() {
+	var place = autocomplete.getPlace();
+	if (place.geometry) {
+		map.panTo(place.geometry.location);
+		map.setZoom(2);
+	} else {
+		document.getElementById('search').placeholder = 'SEARCH';
+	}
+
+	var marker = new google.maps.Marker({
+    map: map,
+    icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
+    position:  place.geometry.location,
+    animation: google.maps.Animation.DROP
+	});
+
+  var infoWindow = new google.maps.InfoWindow();
+  google.maps.event.addListener(marker, 'click', function() {
+    infoWindow.setContent("<form action='/places' method='POST'><input type='hidden' name='placeId' value=" + place.place_id + "/><input type='submit' value='ADD TO MY MAP' /></form>");
+    infoWindow.open(map, this);
+  });
+};
+</script>
+
+<!-- script to access initMap function and places library from API -->
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= @api_key %>&callback=initMap&libraries=places" async defer>
+</script>

@@ -1,58 +1,63 @@
-// map = new google.maps.Map(document.getElementById('map'), {
-//   center: {lat: -34.397, lng: 150.644},
-//   zoom: 8
-// });
+$(document).ready(function () {
+  formEventListener($("#login-btn"), $("#login-div"));
+  formEventListener($("#register-btn"), $("#register-div"));
+  // loginSubmitEventListener();
+  // logoutEventListener();
+});
 
-// $(document).ready(function () {
-// })
-//    // console.log( $.type );
-//    // console.log( $( document ) );
-//    headerLinkListener( ".login_link" );
-//    headerLinkListener( ".register_link" );
-//    headerFormSubmitListener( "#register_new_user_form" );
-//    headerFormSubmitListener( "#login_user_form" );
-//    headerFormSubmitListener( "#logout_user_form" );
-//    doSomeCrazyStuff();
-// });
-//
-// var generateRandomColor = function () {
-//    var num = Math.floor((Math.random() * 4) + 0);
-//
-//    switch ( num ) {
-//       case 0:
-//          return "green"
-//          break;
-//       case 1:
-//          return "red"
-//          break;
-//       case 2:
-//          return "pink"
-//          break;
-//       case 3:
-//          return "orange"
-//          break;
-//       case 4:
-//          return "blue"
-//          break;
-//       default:
-//          return "blue"
-//    }
-// }
-//
-// var doSomeCrazyStuff = function() {
-//    $( "div" ).on( "mouseover", "h1", function( event ) {
-//       event.preventDefault();
-//       var targetElement = $( this );
-//       targetElement.css('color', generateRandomColor());
-//    });
-// };
-//
-// var setupHeaderForm = function( response ) {
-//    var targetParentListener = $ ( "#header_login_register_div" );
-//    targetParentListener.empty();
-//    targetParentListener.append(response);
-// };
-//
+var formEventListener = function (button, div) {
+  button.on ( "click", function (event) {
+    event.preventDefault();
+    if (div.hasClass("hidden")) {
+      div.removeClass("hidden");
+    } else {
+      div.addClass("hidden");
+    }
+  })
+};
+
+var loginSubmitEventListener = function () {
+  $('#submit-btn').on ("click", function (event) {
+    event.preventDefault();
+
+    $.ajax({
+      url: "/sessions/login",
+      type: "POST",
+      data: $(this).parent().serialize()
+    })
+    .done( function( response ) {
+      setupHeaderForm( response );
+      logoutEventListener();
+    })
+    $("#login_user_form").find("input[type=text], input[type=password]").val("");
+    $("#reg-float-div").addClass("hidden");
+  });
+};
+
+var logoutEventListener = function () {
+  $("#logout-btn").on ("click", function (event) {
+    event.preventDefault();
+
+    $.ajax({
+      url: "/sessions/logout",
+      type: "GET"
+    })
+    .done( function( response ) {
+      setupHeaderForm( response );
+      regFormEventListener();
+    })
+
+  });
+};
+
+
+var setupHeaderForm = function( response ) {
+   var targetParentListener = $ ( "#header_login_register_div" );
+   targetParentListener.empty();
+   targetParentListener.append(response);
+};
+
+
 // var headerLinkListener = function(link_class_name) {
 //    $( "#header_container" ).on( "click", link_class_name, function( event ) {
 //       event.preventDefault();
