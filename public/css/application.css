@@ -78,7 +78,7 @@ html, body {
   width: 300px;
 }*/
 input[type='submit'] {
-  visibility: hidden;
+  visibility: collapse;
 }
 
 ::-webkit-input-placeholder {
