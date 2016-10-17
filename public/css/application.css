@@ -36,11 +36,7 @@ html, body {
   background-color: white;
   outline: none;
   background-repeat: no-repeat;
-  /*transition: border-bottom .8s ease-in-out;*/
 }
-/*#search:focus {
-  border-bottom: 1px solid #BBB;
-}*/
 #search:hover {
   cursor: pointer;
 }
@@ -53,24 +49,31 @@ html, body {
 
 /*Login/Register forms*/
 .float-div {
-  height: 18em;
-  width: 15em;
+  height: 0px;
+  width: 0px;
   position: fixed;
-  top: 50%;
+  z-index: 22;
+  /*vertical-align: text-top;*/
+  top: 4px;
   left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
-}
-.float-div form input {
-  display: block;
+  transform: translate(-50%);
 }
 .reg-forms {
-  display: block;
   position: absolute;
-  top: 50%;
+  z-index: 22;
+  /*vertical-align: text-top;*/
+  top: 4px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%);
+}
+.reg-forms form {
+  display: flex;
+}
+.reg-forms input {
+  border: none;
+  outline: none;
+  background-repeat: no-repeat;
+  background-color: white;
 }
 
 ::-webkit-input-placeholder {
