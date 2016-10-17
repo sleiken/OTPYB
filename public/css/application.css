@@ -53,18 +53,16 @@ html, body {
   width: 0px;
   position: fixed;
   z-index: 22;
-  /*vertical-align: text-top;*/
   top: 4px;
-  left: 50%;
-  transform: translate(-50%);
+  left: 40%;
+  transform: translate(-35%);
 }
 .reg-forms {
   position: absolute;
   z-index: 22;
-  /*vertical-align: text-top;*/
   top: 4px;
-  left: 50%;
-  transform: translate(-50%);
+  left: 40%;
+  transform: translate(-35%);
 }
 .reg-forms form {
   display: flex;
@@ -74,6 +72,13 @@ html, body {
   outline: none;
   background-repeat: no-repeat;
   background-color: white;
+  width: 200px;
+}
+/*.reg-forms form:last-child {
+  width: 300px;
+}*/
+input[type='submit'] {
+  visibility: hidden;
 }
 
 ::-webkit-input-placeholder {
