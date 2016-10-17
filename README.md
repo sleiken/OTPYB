@@ -1,2 +1,1 @@
-# waldo
-## an app for tracking your travel
+# waldo - an app for tracking your travel
