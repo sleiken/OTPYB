@@ -19,6 +19,8 @@ gem 'dotenv'
 
 gem 'shotgun'
 
+gem 'heroku'
+
 gem 'haml'
 
 gem 'bcrypt'
