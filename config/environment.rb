@@ -18,7 +18,7 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'sinatra/json'
 
-require 'faker'
+# require 'faker'
 
 require 'bcrypt'
 
