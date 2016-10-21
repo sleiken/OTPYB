@@ -1,8 +1,6 @@
 $(document).ready(function () {
   formEventListener($("#login-btn"), $("#login-div"));
   formEventListener($("#register-btn"), $("#register-div"));
-  // loginSubmitEventListener();
-  // logoutEventListener();
 });
 
 var formEventListener = function (button, div) {
@@ -11,7 +9,8 @@ var formEventListener = function (button, div) {
     if (div.hasClass("hidden")) {
       div.removeClass("hidden");
     } else {
-      div.addClass("hidden");
+      $("#login-div").addClass("hidden");
+      $("#register-div").addClass("hidden");
     }
   })
 };
