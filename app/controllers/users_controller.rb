@@ -5,7 +5,7 @@ end
 #NEW (GET)
 
 get '/users/new/?' do
-   erb :'/users/_new.html', layout: !request.xhr?
+   erb :'_new.html', layout: !request.xhr?
 end
 
 #SHOW (GET)
@@ -25,21 +25,21 @@ end
 #CREATE (POST)
 
 post '/users/?' do
-   
+
    if params[:password_confirmation] == params[:user][:password]
 
       @user = User.new(params[:user])
 
       if @user.save
          session[:id] = @user.id
-         erb :'/headers/_header_links.html', layout: !request.xhr?
+         erb :'_header_links.html', layout: !request.xhr?
       else
          @errors = @user.errors.full_messages
-         erb :'/users/_new.html', layout: !request.xhr?
+         erb :'_new.html', layout: !request.xhr?
       end
    else
       @errors = "Passwords do not match!"
-      erb :'/users/_new.html', layout: !request.xhr?
+      erb :'_new.html', layout: !request.xhr?
    end
 
 end
@@ -49,4 +49,3 @@ end
 #UPDATE (PUT)
 
 #DELETE (DELETE)
-

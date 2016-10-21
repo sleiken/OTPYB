@@ -27,7 +27,7 @@ function initMap() {
   //drop green markers at user locations from db
   <% if @places %>
     <% @places.each do |place| %>
-    console.log("<%=place%>")
+    // console.log("<%=place%>")
     //creates object to search by placeId and get place info.
     var service = new google.maps.places.PlacesService(map);
     //creates an infoWindow object for each place
@@ -75,7 +75,8 @@ function initMap() {
       //add event listener to display infow window if marker is clicked
 			<% if logged_in? %>
       google.maps.event.addListener(marker, 'click', function() {
-        infoWindow.setContent("<form action='/places' method='POST'><input type='hidden' name='placeId' value=" + place.place_id + "/><input type='submit' value='ADD TO MY MAP' /></form>");
+        infoWindow.setContent(
+					"<form action='/places' method='POST'><input type='hidden' name='placeId' value=" + position.place_id + "/><input type='submit' value='ADD TO MY MAP' /></form>");
         infoWindow.open(map, this);
       });
 			<% end %>

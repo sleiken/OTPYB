@@ -69,7 +69,7 @@ html, body {
   background-color: white;
   width: 200px;
 }
-input[type='submit'] {
+.reg-forms input[type='submit'] {
   visibility: collapse;
 }
 

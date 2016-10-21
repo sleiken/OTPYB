@@ -1,6 +1,6 @@
 #NEW
 get '/sessions/login/?' do
-   erb :'sessions/_login.html', layout: !request.xhr?
+   erb :'_login.html', layout: !request.xhr?
 end
 
 #CREATE
