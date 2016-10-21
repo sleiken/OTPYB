@@ -1,4 +1,12 @@
+/*Import font for site*/
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+
+@media all and (max-width: 620px) {
+  html, body {
+    font-size: .2em;
+    color: red;
+  }
+}
 
 html, body {
   height: 100%;
@@ -135,66 +143,8 @@ html, body {
   height: 55px;
 }
 
-/*#registration-login-links {
-  display:flex;
-  justify-content: space-around;
-}*/
-
-/*.headerDivider {
-   border-right: 1px solid;
-   height: 50px;
-   top: 10px;
-   position: absolute;
-}*/
-
-/*#login-btn {
-  height: 50px;
-  width: 190px;
-  left: 50%;
-  transform: translateX(-50%);
-}*/
-
-/*#header_container {
-  /*padding-top: 10px;*/
-  height: 70px;
-  /*display: flex;*/
-/*}*/
-
-/*#header-logo {
-  height: 50px;
-  /*position: absolute;*/
-  /*text-align: center;*/
-/*}*/
-
-/*#registration-login-links a {
-  /*height: inherit;*/
-  text-decoration: none;
-  font-size: 2em;
-  padding-top: 4px;
-  /*width: calc(20% - 1em);*/
-/*}*/
-
-/*.nav {
-  text-align: center;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  /*height: inherit;*/
-/*/
-
-/*.nav li{
-    display:inline;
-    max-width: 275px;
+input[type='submit'] {
+  border: none;
+  background: white;
+  text-decoration: underline;
 }
-.nav a{
-    /*display:inline-block;*/
-    padding:10px;
-}/*/*/
-
-/*.header_div {
-  overflow: hidden;
-  background-color: white;
-  z-index: 20;
-  position: fixed;
-  width: 100%;
-  padding-top: 0px;
-}*/

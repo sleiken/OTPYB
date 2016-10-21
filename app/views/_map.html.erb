@@ -27,7 +27,6 @@ function initMap() {
   //drop green markers at user locations from db
   <% if @places %>
     <% @places.each do |place| %>
-    // console.log("<%=place%>")
     //creates object to search by placeId and get place info.
     var service = new google.maps.places.PlacesService(map);
     //creates an infoWindow object for each place
@@ -89,7 +88,7 @@ function onPlaceChanged() {
 	var place = autocomplete.getPlace();
 	if (place.geometry) {
 		map.panTo(place.geometry.location);
-		map.setZoom(2);
+		map.setZoom(4);
 	} else {
 		document.getElementById('search').placeholder = 'SEARCH';
 	}
