@@ -73,10 +73,12 @@ function initMap() {
         <%= "map.setCenter(pos);" %>
       <% end %>
       //add event listener to display infow window if marker is clicked
+			<% if logged_in? %>
       google.maps.event.addListener(marker, 'click', function() {
-        infoWindow.setContent("<button>ADD TO MY MAP</button>");
+        infoWindow.setContent("<form action='/places' method='POST'><input type='hidden' name='placeId' value=" + place.place_id + "/><input type='submit' value='ADD TO MY MAP' /></form>");
         infoWindow.open(map, this);
       });
+			<% end %>
     });
   };
 }
@@ -98,11 +100,15 @@ function onPlaceChanged() {
     animation: google.maps.Animation.DROP
 	});
 
+	<% if logged_in? %>
   var infoWindow = new google.maps.InfoWindow();
   google.maps.event.addListener(marker, 'click', function() {
-    infoWindow.setContent("<form action='/places' method='POST'><input type='hidden' name='placeId' value=" + place.place_id + "/><input type='submit' value='ADD TO MY MAP' /></form>");
+    infoWindow.setContent(
+			"<form action='/places' method='POST'><input type='hidden' name='placeId' value=" + place.place_id + "/><input type='submit' value='ADD TO MY MAP' /></form>"
+		);
     infoWindow.open(map, this);
   });
+	<% end %>
 };
 </script>
 
