@@ -4,6 +4,8 @@ var global_center = {lat: 30.9650874, lng: 1.1948218}
 //sets zoom based on if a user is logged in or not
 var zoom = <%= logged_in? ? 2 : 12 %>
 
+var autocomplete;
+
 //create map object
 function initMap() {
 	map = new google.maps.Map($("#map")[0], {
@@ -17,8 +19,7 @@ function initMap() {
 
   //add autocomplete fucntion to search bar
 	autocomplete = new google.maps.places.Autocomplete(
-			/** @type {!HTMLInputElement} */ (
-			$("#search")[0]), {
+			$("#search")[0], {
 				types: ['(regions)']
 			});
 	autocomplete.addListener('place_changed', onPlaceChanged);
