@@ -8,7 +8,9 @@ var formEventListener = function (button, div) {
     event.preventDefault();
     if (div.hasClass("hidden")) {
       div.removeClass("hidden");
+      $("#search").addClass("hidden");
     } else {
+      $("#search").removeClass("hidden");
       $("#login-div").addClass("hidden");
       $("#register-div").addClass("hidden");
     }
@@ -55,45 +57,3 @@ var setupHeaderForm = function( response ) {
    targetParentListener.empty();
    targetParentListener.append(response);
 };
-
-
-// var headerLinkListener = function(link_class_name) {
-//    $( "#header_container" ).on( "click", link_class_name, function( event ) {
-//       event.preventDefault();
-//
-//       var link = $(this);
-//
-//       $.ajax({
-//          method:  "GET",
-//          url:     link.attr( 'href' )
-//       })
-//       .done( function( response ) {
-//          setupHeaderForm( response );
-//       })
-//       .fail( function( response ){
-//          alert("Failed to access " + link.attr( 'href' ));
-//       });
-//    });
-// };
-//
-// var headerFormSubmitListener = function( form_id_name ) {
-//    $( "#header_container" ).on( "submit", form_id_name, function( event ) {
-//
-//       event.preventDefault();
-//
-//       var form_id_name = $( this );
-//
-//       $.ajax({
-//          method:  form_id_name.attr( 'method' ),
-//          url:     form_id_name.attr( 'action' ),
-//          data:    form_id_name.serialize()
-//       })
-//       .done( function( response ) {
-//          setupHeaderForm( response );
-//       })
-//       .fail( function( response ){
-//          alert( "Failed to " + form_id_name.attr( 'method' )
-//                 + " to " + form_id_name.attr( 'action' ));
-//       });
-//    });
-// };

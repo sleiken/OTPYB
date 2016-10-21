@@ -51,15 +51,13 @@ html, body {
   position: fixed;
   z-index: 22;
   top: 4px;
-  left: 40%;
-  transform: translate(-35%);
+  left: 36px;
 }
 .reg-forms {
   position: absolute;
   z-index: 22;
   top: 4px;
-  left: 40%;
-  transform: translate(-35%);
+  left: 36px;
 }
 .reg-forms form {
   display: flex;
@@ -94,6 +92,7 @@ input[type='submit'] {
   height: 55px;
 }
 #navbar-links {
+  height: 55px;
   position: fixed;
   z-index: 20;
   overflow: hidden;
