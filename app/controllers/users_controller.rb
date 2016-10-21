@@ -17,11 +17,11 @@ end
 
 
 post '/users/?' do
-  if params[:password_confirmation] == params[:user][:password]
+  if params[:user][:password]
     @user = User.new(params[:user])
     if @user.save
       session[:id] = @user.id
-      erb :'_header_links.html', layout: !request.xhr?
+      redirect "/"
     else
       @errors = @user.errors.full_messages
       erb :'_new.html', layout: !request.xhr?
