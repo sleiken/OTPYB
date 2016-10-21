@@ -1,8 +1,9 @@
 <div class="reg-forms">
   <form id="register_new_user_form" action="/users" method="POST">
-     <input type="text" name="user[username]" placeholder="Enter Email">
-     <input type="password" name="user[password]" placeholder="Enter Password">
-     <input type="password" name="password_confirmation" placeholder="Confirm Password">
-     <input id="submit-btn" type="submit">
+    <input type="text" name="user[email]" placeholder="EMAIL" autofocus>
+    <input type="text" name="user[username]" placeholder="USERNAME">
+    <input type="password" name="user[password]" placeholder="PASSWORD">
+    <!-- <input type="password" name="password_confirmation" placeholder="RETYPE PASSWORD"> -->
+    <input id="submit-btn" type="submit">
   </form>
 </div>
